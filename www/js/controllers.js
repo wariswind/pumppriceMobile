@@ -85,7 +85,7 @@ $scope.hide = function(){
 	$scope.MyRegModal.hide();
   };
    $scope.openModal = function() {
-    $scope.Mymodal.show();
+    $scope.MyRegModal.show();
   };
 
  $scope.Userdetails = localStorageService.get('localUser');
@@ -93,7 +93,7 @@ $scope.hide = function(){
  
  if ($scope.Userdetails === null) {
 	 
-setTimeout( function() {$scope.MyRegModal()}, 200);
+setTimeout( function() {$scope.openModal()}, 200);
       
  }
  else{
