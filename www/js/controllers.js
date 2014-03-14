@@ -36,7 +36,7 @@ var app=angular.module('pump.controllers', [])
     $scope.sideMenuController.toggleLeft();
   };
   
-  localStorageService.clearAll();
+  //localStorageService.clearAll();
   $scope.show = function() {
 
     // Show the loading overlay and text
