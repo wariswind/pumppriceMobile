@@ -1,4 +1,5 @@
 /* CSS Document */
+body{font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif}
 .image_def{width:13em; height:3em; margin-left:0.5em;}
 .css-form input.ng-invalid.ng-dirty {
 	  border:1px solid #BF1111;

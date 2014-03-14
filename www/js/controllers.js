@@ -32,7 +32,9 @@ var app=angular.module('pump.controllers', [])
 .controller('homeCtrl', function($scope,$rootScope, $ionicModal,$ionicLoading,$http,localStorageService,fuelData) {
   // "Pets" is a service returning mock data (services.js)
    $scope.user={};
-    
+    $scope.buyfuel = function() {
+    $scope.sideMenuController.toggleLeft();
+  };
   
   //localStorageService.clearAll();
   $scope.show = function() {
@@ -91,16 +93,40 @@ $scope.hide = function(){
  
  if ($scope.Userdetails === null) {
 	 
-setTimeout( function() {$scope.openModal()}, 150);
+setTimeout( function() {$scope.openModal()}, 200);
       
  }
  else{
+ }
+ $scope.memberSignIn = function() {
+	  $scope.show();
+	  $http({
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    url: 'http://pumpprice.com.ng/index.php/mobileapp/member_login',
+    method: "POST",
+    data: {
+      "username" : $scope.user.username,
+      "pasd" : $scope.user.pasd
+    },
+  })
+  .success(function(data) {
+	  if(data.error == 1){
+    	$scope.logdetails=data;
+		localStorageService.add('localUser',$scope.logdetails);
+		$scope.Userdetails = localStorageService.get('localUser');
+		$scope.Mymodal.hide();
+	  }
+	  else if(data.error == 2){
+		  $scope.logerror='Invalid login details';
+	  }
+	  $scope.hide(); 
+  });
  }
    $scope.memberRegister = function() {
 	$scope.show();
 	 $http({
     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-    url: 'http://www.pumpprice.com.ng/index.php/mobileapp/member_register',
+    url: 'http://pumpprice.com.ng/index.php/mobileapp/member_register',
     method: "POST",
     data: {
       "name" : $scope.user.name,
@@ -117,36 +143,13 @@ setTimeout( function() {$scope.openModal()}, 150);
 		$scope.Userdetails = localStorageService.get('localUser');
 		$scope.MyRegModal.hide();
 	  }
-	  else if(data.error == 2){
+	  else if(data.error == 0){
 		  $scope.logregerror='Email or phone has already been used';
 	  }
 	 $scope.hide(); 
   });
  }
-  $scope.memberSignIn = function() {
-	  $scope.show();
-	  $http({
-    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-    url: 'http://www.pumpprice.com.ng/index.php/mobileapp/member_login',
-    method: "POST",
-    data: {
-      "username" : $scope.user.username,
-      "pasd" : $scope.user.pasd
-    },
-  })
-  .success(function(data) {
-	  if(data.error == 1){
-    	$scope.logdetails=data;
-		localStorageService.add('localUser',$scope.logdetails);
-		$scope.Userdetails = localStorageService.get('localUser');
-		$scope.Mymodal.hide();
-	  }
-	  else if(data.error == 0){
-		  $scope.logerror='Invalid login details';
-	  }
-	  $scope.hide(); 
-  });
- }
+  
   
 })
 

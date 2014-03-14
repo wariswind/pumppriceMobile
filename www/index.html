@@ -2,7 +2,7 @@
 <html ng-app="pump">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width,target-densitydpi=medium-dpi">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>Pump Price App</title>
 
   
@@ -13,6 +13,16 @@
      <!-- your app's css -->
     <link href="css/app.css" rel="stylesheet">
    <!-- ionic/angularjs scripts -->
+    <script>
+    var meta = document.createElement("meta");
+    meta.setAttribute('name','viewport');
+    if (isS4) {
+        meta.setAttribute('content','target-densitydpi=medium-dpi');
+    } else {
+        meta.setAttribute('content','target-densitydpi=device-dpi');
+    }
+    document.getElementsByTagName('head')[0].appendChild(meta);
+   </script>
     <script src="js/ionic.bundle.js"></script>
     <!-- local storage scripts -->
     <script src="js/angular-local-storage.min.js"></script>
