@@ -32,11 +32,9 @@ var app=angular.module('pump.controllers', [])
 .controller('homeCtrl', function($scope,$rootScope, $ionicModal,$ionicLoading,$http,localStorageService,fuelData) {
   // "Pets" is a service returning mock data (services.js)
    $scope.user={};
-    $scope.buyfuel = function() {
-    $scope.sideMenuController.toggleLeft();
-  };
+    
   
-  //localStorageService.clearAll();
+  localStorageService.clearAll();
   $scope.show = function() {
 
     // Show the loading overlay and text
@@ -93,7 +91,7 @@ $scope.hide = function(){
  
  if ($scope.Userdetails === null) {
 	 
-$scope.openModal();
+setTimeout( function() {$scope.openModal()}, 150);
       
  }
  else{
