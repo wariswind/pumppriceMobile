@@ -93,7 +93,7 @@ $scope.hide = function(){
  
  if ($scope.Userdetails === null) {
 	 
-setTimeout( function() {$scope.openModal()}, 100);
+$scope.openModal();
       
  }
  else{
@@ -102,7 +102,7 @@ setTimeout( function() {$scope.openModal()}, 100);
 	$scope.show();
 	 $http({
     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-    url: 'http://pumpprice.com.ng/index.php/mobileapp/member_register',
+    url: 'http://www.pumpprice.com.ng/index.php/mobileapp/member_register',
     method: "POST",
     data: {
       "name" : $scope.user.name,
@@ -126,6 +126,7 @@ setTimeout( function() {$scope.openModal()}, 100);
   });
  }
   $scope.memberSignIn = function() {
+	  $scope.show();
 	  $http({
     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
     url: 'http://pumpprice.com.ng/index.php/mobileapp/member_login',
@@ -143,8 +144,9 @@ setTimeout( function() {$scope.openModal()}, 100);
 		$scope.Mymodal.hide();
 	  }
 	  else if(data.error == 0){
-		  $scope.logerror=$scope.user.username+'Invalid login details'+$scope.user.pasd;
+		  $scope.logerror='Invalid login details';
 	  }
+	  $scope.hide(); 
   });
  }
   
