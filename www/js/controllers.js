@@ -106,7 +106,7 @@ setTimeout( function() {$scope.openModal()}, 200);
     method: "POST",
     data: {
       "username" : $scope.user.username,
-      "pasd" : $scope.user.pasd1
+      "pasd" : $scope.user.pasd1,
     },
   })
   .success(function(data) {
