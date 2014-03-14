@@ -34,7 +34,7 @@ var app=angular.module('pump.controllers', [])
    $scope.user={};
     
   
-  localStorageService.clearAll();
+  //localStorageService.clearAll();
   $scope.show = function() {
 
     // Show the loading overlay and text
@@ -91,7 +91,7 @@ $scope.hide = function(){
  
  if ($scope.Userdetails === null) {
 	 
-setTimeout( function() {$scope.openModal()}, 50);
+setTimeout( function() {$scope.openModal()}, 150);
       
  }
  else{
@@ -117,7 +117,7 @@ setTimeout( function() {$scope.openModal()}, 50);
 		$scope.Userdetails = localStorageService.get('localUser');
 		$scope.MyRegModal.hide();
 	  }
-	  else if(data.error == 0){
+	  else if(data.error == 2){
 		  $scope.logregerror='Email or phone has already been used';
 	  }
 	 $scope.hide(); 
@@ -127,7 +127,7 @@ setTimeout( function() {$scope.openModal()}, 50);
 	  $scope.show();
 	  $http({
     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-    url: 'http://pumpprice.com.ng/index.php/mobileapp/member_login',
+    url: 'http://www.pumpprice.com.ng/index.php/mobileapp/member_login',
     method: "POST",
     data: {
       "username" : $scope.user.username,
