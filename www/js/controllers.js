@@ -117,7 +117,7 @@ setTimeout( function() {$scope.openModal()}, 200);
 		$scope.Mymodal.hide();
 	  }
 	  else{
-		  $scope.logerror='Invalid login details @'+data.error;
+		  $scope.logerror='Invalid login details @'+data.user;
 	  }
 	  $scope.hide(); 
   });
