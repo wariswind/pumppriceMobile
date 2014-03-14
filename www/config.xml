@@ -3,7 +3,7 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "ILS-Test-App"
+        id        = "PumpPrice-App"
         version   = "1.0.0">
 
     <name>Pump Price</name>
@@ -13,7 +13,7 @@
     </description>
 
     <author href="http://jobcentreng.com" email="windonard@yahoo.com">
-        ILS Group
+        Job Centre
     </author>
 
     <!--
