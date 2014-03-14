@@ -1,0 +1,57 @@
+<div class="modal" ng-controller="LoginCtrl">
+        <header class="bar bar-header bar-positive">
+          <h1 class="title">Member Registration</h1>
+          <button class="button" ng-click="memberlogmodel()">Log In</button>
+        </header>
+        <ion-content has-header="true">
+        <div class="padding">
+          <form name="form" class="css-form" novalidate>
+          <img src="img/pump_price.png" class="image_def">
+            <div class="list list-inset">
+           <div ng-if="logregerror" class="item item-divider item-assertive">
+                    {{logregerror}}
+                  </div>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Member/Company Name</span>
+                <input ng-model="user.name" type="text" placeholder="Name" required/>
+              </label>
+              <label class="item item-input">
+                <span class="input-label">Email</span>
+                <input ng-model="user.email" type="email" required/>
+              </label>
+              <label class="item item-input">
+                <span class="input-label">Phone</span>
+                <input ng-model="user.phone" type="tel" required/>
+              </label>
+              <label class="item item-input">
+                <span class="input-label">Password</span>
+                <input ng-model="user.pasd" type="Password" required/>
+              </label>
+              <div class="list">
+                 <div class="item item-divider">
+                    Registration type
+                  </div>
+              <label class="item item-radio">
+                <input type="radio" value="1" ng-model="user.type" name="group" required>
+                <div class="item-content">
+                  Individual
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+              </label>
+            
+              <label class="item item-radio">
+                <input type="radio" value="2" ng-model="user.type" name="group" required>
+                <div class="item-content">
+                 Company
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+              </label>
+            
+            </div>
+
+              <button class="button button-full button-positive" ng-disabled="form.$invalid" ng-click="memberRegister()">Register</button>
+            </div>
+          </form>
+          </div>
+        </ion-content>
+      </div>

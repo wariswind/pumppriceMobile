@@ -1,0 +1,13 @@
+/* CSS Document */
+.image_def{width:13em; height:3em; margin-left:0.5em;}
+.css-form input.ng-invalid.ng-dirty {
+	  border:1px solid #BF1111;
+    }
+ 
+    .css-form input.ng-valid.ng-dirty {
+	 
+    }
+	p.errnote{ color:#BF1111; font-family:Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace; font-size:0.9em; margin:0.3em;}
+	button.cancelbtn{display:inline-block; vertical-align:middle; margin-left:3em;}
+	p.nopayment{font-family:"Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif; font-size:1.1em; color:#fff;}
+

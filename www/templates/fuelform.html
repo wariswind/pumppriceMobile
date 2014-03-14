@@ -1,0 +1,94 @@
+<ion-view title="'Pump Price'" left-buttons="leftButtons" right-buttons="rightButtons">
+
+        <ion-content has-header="true" padding="true" >		
+<div class="card">
+  <div class="item item-divider item-positive">
+   {{fuel.product}} @ {{fuel.price}} NGN
+  </div>
+  <div class="item item-body">
+    <div class="list">
+<div class="item item-divider">
+Purchase Type
+</div>
+
+<form name="form" class="css-form" novalidate>
+  <label class="item item-radio">
+    <input ng-model="buyProd.cash_volume" value="0" type="radio" name="group" ng-click="buyProd.cash_amt='';buyProd.total_val=''" required>
+    <div class="item-content">
+      Cash eg 1,000.00 NGN 
+    </div>
+    <i class="radio-icon ion-checkmark"></i>
+  </label>
+  <label class="item item-radio">
+    <input ng-model="buyProd.cash_volume" value="1" type="radio" name="group" ng-click="buyProd.cash_amt='';buyProd.total_val=null" required>
+    <div class="item-content">
+      Liters eg 10 Liters
+    </div>
+    <i class="radio-icon ion-checkmark"></i>
+  </label>
+   <br>
+  <label ng-show="buyProd.cash_volume==0" class="item item-input item-stacked-label">
+    <span class="input-label">Amount of {{fuel.product}}</span>
+    <input type="text" ng-model="buyProd.cash_amt" name="cash_amt1" placeholder="eg 1000.00" smart-float>
+    <p class="errnote" ng-show="form.cash_amt1.$error.float"> not accepted. E.g enter 1000.00 for 1,000.00 NGN!</p>
+  </label>
+  <label ng-show="buyProd.cash_volume==1" class="item item-input item-stacked-label">
+    <span class="input-label">liters of {{fuel.product}}</span>
+    <input type="text"  ng-model="buyProd.cash_amt" name="cash_amt" placeholder="eg 10" smart-float>
+    <p class="errnote" ng-show="form.cash_amt.$error.float">not accepted. E.g enter 10 for 10 Liters!</p>
+  </label>
+  <br>
+ <button ng-disabled="form.$invalid" ng-click="cal_fuel()" ng-show="!buyProd.total_val" class="button icon ion-calculator button-stable">
+ Calculate
+</button>
+
+</form>
+<div ng-hide="!buyProd.total_val">
+<div class="item item-divider item-positive">
+{{fuel.product}} purchase <button ng-click="buyProd.total_val=null" class="button cancelbtn button-icon icon ion-close button-positive"></button>
+</div>
+<label class="item item-input item-label">
+    <span class="input-label">Amount</span>
+    <input type="text"  ng-model="buyProd.total_val"  disabled >
+  </label>
+<label  class="item item-input item-label">
+    <span class="input-label">Liters</span>
+    <input type="text"  ng-model="buyProd.totallit"  disabled >
+  </label>
+  <br>
+  <div class="item item-divider">
+Payment Type
+</div>
+ <label class="item item-radio">
+    <input ng-model="buyProd.paytype" value="0" type="radio" name="grouppay" required>
+    <div class="item-content">
+      <i class="icon positive ion-ios7-briefcase"></i> Pump Price Wallet 
+    </div>
+    <i class="radio-icon ion-checkmark-circled"></i>
+  </label>
+  <label class="item item-radio">
+    <input ng-model="buyProd.paytype" value="1" type="radio" name="grouppay" required>
+    <div class="item-content">
+      <i class="icon positive ion-card"></i> Master card 
+    </div>
+    <i class="radio-icon ion-checkmark-circled"></i>
+  </label>
+  <label class="item item-radio">
+    <input ng-model="buyProd.paytype" value="2" type="radio" name="grouppay" required>
+    <div class="item-content">
+      <i class="icon positive ion-card"></i> Verve card 
+    </div>
+    <i class="radio-icon ion-checkmark-circled"></i>
+  </label>
+  <br>
+  <button ng-disabled="!buyProd.paytype" ng-click="make_payment()" class="button icon ion-ios7-locked button-positive">
+ Pay Now
+</button>
+  </div>
+  
+  </div>
+</div>
+
+
+        </ion-content>
+      </ion-view>
