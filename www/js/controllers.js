@@ -93,34 +93,10 @@ $scope.hide = function(){
  
  if ($scope.Userdetails === null) {
 	 
-setTimeout( function() {$scope.openModal()}, 200);
+setTimeout( function() {$scope.openModal()}, 100);
       
  }
  else{
- }
- $scope.memberSignIn = function() {
-	  $scope.show();
-	  $http({
-    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-    url: 'http://pumpprice.com.ng/index.php/mobileapp/member_login',
-    method: "POST",
-    data: {
-      "username" : $scope.user.username,
-      "pasd" : $scope.user.pasd
-    },
-  })
-  .success(function(data) {
-	  if(data.error == 1){
-    	$scope.logdetails=data;
-		localStorageService.add('localUser',$scope.logdetails);
-		$scope.Userdetails = localStorageService.get('localUser');
-		$scope.Mymodal.hide();
-	  }
-	  else if(data.error == 2){
-		  $scope.logerror='Invalid login details';
-	  }
-	  $scope.hide(); 
-  });
  }
    $scope.memberRegister = function() {
 	$scope.show();
@@ -149,7 +125,28 @@ setTimeout( function() {$scope.openModal()}, 200);
 	 $scope.hide(); 
   });
  }
-  
+  $scope.memberSignIn = function() {
+	  $http({
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    url: 'http://pumpprice.com.ng/index.php/mobileapp/member_login',
+    method: "POST",
+    data: {
+      "username" : $scope.user.username,
+      "pasd" : $scope.user.pasd
+    },
+  })
+  .success(function(data) {
+	  if(data.error == 1){
+    	$scope.logdetails=data;
+		localStorageService.add('localUser',$scope.logdetails);
+		$scope.Userdetails = localStorageService.get('localUser');
+		$scope.Mymodal.hide();
+	  }
+	  else if(data.error == 0){
+		  $scope.logerror=$scope.user.username+'Invalid login details'+$scope.user.pasd;
+	  }
+  });
+ }
   
 })
 
