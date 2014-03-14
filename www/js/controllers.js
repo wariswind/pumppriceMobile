@@ -91,7 +91,7 @@ $scope.hide = function(){
  
  if ($scope.Userdetails === null) {
 	 
-setTimeout( function() {$scope.openModal()}, 150);
+setTimeout( function() {$scope.openModal()}, 50);
       
  }
  else{
