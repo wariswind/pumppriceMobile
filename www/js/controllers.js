@@ -85,7 +85,7 @@ $scope.hide = function(){
 	$scope.MyRegModal.hide();
   };
    $scope.openModal = function() {
-    $scope.MyRegModal.show();
+    $scope.Mymodal.show();
   };
 
  $scope.Userdetails = localStorageService.get('localUser');
@@ -116,7 +116,7 @@ setTimeout( function() {$scope.openModal()}, 200);
 		$scope.Userdetails = localStorageService.get('localUser');
 		$scope.Mymodal.hide();
 	  }
-	  else{
+	  else if(data.error == 2){
 		  $scope.logerror='Invalid login details @'+data.user;
 	  }
 	  $scope.hide(); 
