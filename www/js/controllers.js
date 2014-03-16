@@ -43,7 +43,7 @@ var app=angular.module('pump.controllers', [])
     $scope.loading = $ionicLoading.show({
 
       // The text to display in the loading indicator
-      content: 'Loading',
+      content: 'Loading...',
 
       // The animation to use
       animation: 'fade-in',
@@ -117,7 +117,7 @@ setTimeout( function() {$scope.openModal()}, 200);
 		$scope.Mymodal.hide();
 	  }
 	  else if(data.error == 2){
-		  $scope.logerror='Invalid login details @'+data.user;
+		  $scope.logerror='Invalid login details';
 	  }
 	  $scope.hide(); 
   });
